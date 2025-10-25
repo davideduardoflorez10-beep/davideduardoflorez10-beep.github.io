@@ -151,5 +151,24 @@ if (contactoForm) {
   });
 }
 
+// === Chatbot Widget === 
+(function (){
+  //1. Url del Space
+  const CHATBOT_URL = "https://davidfd10-chatbot.hf.space";
+  //2. Botón "Abrir en nueva pestaña"
+  const openNew = document.getElementById('chatbotOpenNew');
+  if(openNew) openNew.setAttribute('href', CHATBOT_URL);
+  //3. Carga del iframe
+  const offcanvasEl = document.getElementById('chatbotOffcanvas');
+  if(offcanvasEl){
+    offcanvasEl.addEventListener('show.bs.offcanvas', function(){
+      const frame = document.getElementById('chatbotFrame');
+      if(frame && !frame.getAttribute('src')){
+        frame.setAttribute('src', CHATBOT_URL);
+      }
+    });
+  }
+})();
+
 //Sección Perfil Usuario
 
